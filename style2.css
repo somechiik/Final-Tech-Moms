@@ -1,0 +1,182 @@
+/* =========================
+   NAV & GLOBAL STYLES
+   ========================= */
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: black;
+    padding: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    font-size: 50px;
+    font-family: 'Papyrus';
+    font-style: oblique;
+    font-weight: 300;
+}
+
+#nav-link {
+    list-style-type: square;
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    margin: 0;
+}
+
+nav img {
+    width: 20%;
+    border: 5px solid white;
+    /* fixed: makes border actually white */
+}
+
+.card img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    object-fit: cover;
+    border: 2px solid #222;
+    box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.5);
+    background-color: #f8f8f8;
+}
+
+.card h2 {
+    font-style: oblique;
+    font-family: 'Papyrus';
+    text-align: center;
+}
+
+#main {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.neon-black {
+    color: #000;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, .3);
+    transition: all .3s ease-in-out;
+}
+
+.neon-black:hover {
+    text-shadow:
+        2px 2px 6px rgba(0, 0, 0, .6),
+        0 0 12px rgba(0, 0, 0, .3);
+}
+
+a {
+    text-decoration: none;
+}
+
+/* =========================
+   LOGO / TITLE AREA
+   ========================= */
+
+/* Background for the logo strip */
+#logo {
+    background-color: black;
+    /* your original choice */
+    text-align: left;
+    margin: 50px;
+    overflow: hidden;
+    /* hides slide-in overflow cleanly */
+}
+
+/* Title base styling */
+.title {
+    /* Use one font here so it’s consistent */
+    font-family: 'Playfair Display', 'Papyrus', serif;
+    font-style: oblique;
+}
+
+/* Light-on-dark look for the heading lines */
+.title h1,
+.title h3 {
+    color: rgba(255, 255, 255, 0.4);
+    /* translucent white */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    /* soft glow */
+    margin: 0;
+    line-height: 1.05;
+}
+
+/* Make the & nice and big like you had */
+.title h3 {
+    font-size: 500%;
+}
+
+/* -------------------------
+   HORIZONTAL STAGGER
+   - Uses vw so it scales with screen width
+   ------------------------- */
+.title h1:nth-of-type(1) {
+    margin-left: 10vw;
+}
+
+/* Stillness */
+.title h3:nth-of-type(1) {
+    margin-left: 35vw;
+}
+
+/* & */
+.title h1:nth-of-type(2) {
+    margin-left: 60vw;
+}
+
+/* Shenanigans */
+
+/* -------------------------
+   LOAD ANIMATION (slide up + fade)
+   Each line animates in with a staggered delay.
+   ------------------------- */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.title h1,
+.title h3 {
+    opacity: 0;
+    animation: slideInUp 0.9s ease forwards;
+    /* Hover transitions (no transform here to avoid conflicts) */
+    transition:
+        color .3s ease,
+        text-shadow .3s ease;
+}
+
+/* Staggered delays so they appear one after another */
+.title h1:nth-of-type(1) {
+    animation-delay: 0s;
+}
+
+.title h3:nth-of-type(1) {
+    animation-delay: .25s;
+}
+
+.title h1:nth-of-type(2) {
+    animation-delay: .5s;
+}
+
+/* -------------------------
+   HOVER EFFECT (silver shimmer only)
+   - No transform so it never fights the load animation.
+   ------------------------- */
+.title:hover h1,
+.title:hover h3 {
+    color: #e6e6e6;
+    text-shadow:
+        0 0 6px rgba(192, 192, 192, .7),
+        0 0 12px rgba(192, 192, 192, .5),
+        2px 2px 4px rgba(0, 0, 0, .25);
+}

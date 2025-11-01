@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const title = document.querySelector(".title");
+        title.addEventListener("mouseenter", function once() {
+            // remove the transform delay after first hover
+            this.querySelectorAll("h1, h3").forEach(el => {
+                el.style.transitionDelay = "0s";
+            });
+            // remove listener so it only happens once
+            title.removeEventListener("mouseenter", once);
+        });
+    });
+</script>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+    <div id="logo">
+        <div class="title">
+            <h1>Stillness</h1>
+            <h3>&</h3>
+            <h1>Shenanigans</h1>
+        </div>
+
+    </div>
+
+    <div id="main">
+        <div class="card">
+            <a target="_blank" href="about.html">
+                <h2 class="neon-black">Andrea Hatch</h2>
+                <img src="Images/andrea.jpg" alt="picture of me">
+            </a>
+        </div>
+
+        <div class="card">
+            <a target="_blank" href="https://www.suu.edu/">
+                <h2 class="neon-black">Southern Utah University</h2>
+                <img src="Images/suu1.jpg" alt="suu">
+            </a>
+        </div>
+
+        <div class="card">
+            <a target="_blank" href="https://veteranhelp.com/">
+                <h2 class="neon-black">Veteran Help Legal</h2>
+                <img src="Images/vhljustice.jpg" alt="lady justice scales of justice">
+            </a>
+        </div>
+
+    </div>
+    <div>
+        <nav>
+            <ul id="nav-link">
+                <li><a target="_blank" href="index.html">Home</a></li>
+                <li><a target="_blank" href="https://www.linkedin.com/in/andreadhatch">LinkedIn</a></li>
+                <li><a target="_blank" href="https://www.facebook.com/somechick/">Facebook</a></li>
+                <li><a target="_blank" href="https://www.instagram.com/cam0barbie">Instagram</a></li>
+
+            </ul>
+        </nav>
+    </div>
+</body>
+
+</html>
